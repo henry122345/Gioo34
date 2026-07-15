@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Alguien Especial ❤️</title>
+    <title>Para Mi Niña ❤️</title>
     <style>
         * {
             box-sizing: border-box;
@@ -43,7 +43,15 @@
             color: #ffffff;
         }
 
-        /* Subtítulo superior */
+        /* Título añadido */
+        .titulo-principal {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Subtítulo */
         .subtitulo {
             font-size: 1.2rem;
             margin-bottom: 25px;
@@ -52,7 +60,7 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
         }
 
-        /* Frase principal de Amor y Amistad */
+        /* Frase principal */
         .descripcion {
             font-size: 1.25rem;
             line-height: 1.6;
@@ -124,6 +132,7 @@
 <body>
 
     <div class="card">
+        <div class="titulo-principal">Mi niña ❤️</div>
         <div class="subtitulo">✨ El regalo más bonito de la vida ✨</div>
         
         <div class="descripcion">
@@ -141,7 +150,6 @@
     </div>
 
     <script>
-        // Tu lista de palabras especiales que van a caer
         const palabras = [
             "Mi niña ❤️", "Mi princesita 👑", "Mi hermosa 🌹", "Mi bonita 🌸",
             "Mi reina 👑", "Mi vida 💖", "Mi cielo ☁️", "Mi luz ✨",
@@ -153,7 +161,6 @@
             const elemento = document.createElement('div');
             elemento.classList.add('palabra-flotante');
             
-            // Mezclamos un poco agregando corazones y destellos flotantes sueltos
             const probabilidadDecoracion = Math.random();
             if (probabilidadDecoracion > 0.8) {
                 elemento.innerText = "💖";
@@ -163,28 +170,22 @@
                 elemento.innerText = palabras[Math.floor(Math.random() * palabras.length)];
             }
             
-            // Posición horizontal aleatoria
             elemento.style.left = Math.random() * 90 + "vw"; 
-            
-            // Velocidad de caída fluida (entre 5 y 9 segundos)
             const duracion = Math.random() * 4 + 5;
             elemento.style.animationDuration = duracion + "s";
-            
-            // Tamaños variados para dar profundidad
             elemento.style.fontSize = (Math.random() * 0.5 + 1.1) + "rem";
 
             document.body.appendChild(elemento);
 
-            // Eliminar elemento al terminar la animación
             setTimeout(() => {
                 elemento.remove();
             }, duracion * 1000);
         }
 
-        // Genera una nueva palabra o detalle cada 450 milisegundos
         setInterval(crearPalabra, 450);
     </script>
 </body>
 </html>
 
 ```
+
