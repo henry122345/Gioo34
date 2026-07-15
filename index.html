@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Gran Amiga 💕</title>
+    <title>Amistad y Amor ❤️</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,58 +12,96 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            background-color: #ff9ebb; /* Fondo rosa idéntico */
+            background-image: radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+            background-size: 30px 30px; /* Simula los puntitos brillantes de fondo */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
         }
 
-        /* Contenedor principal */
-        .container {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(235, 94, 138, 0.2);
+        /* Tarjeta translúcida central */
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 30px;
             text-align: center;
             z-index: 10;
-            max-width: 400px;
+            max-width: 550px;
             width: 90%;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.15);
+            color: #ffffff;
         }
 
-        h1 {
-            color: #d90429;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+        /* Título Principal */
+        .titulo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
         }
 
-        p {
-            color: #6c757d;
-            font-size: 1rem;
+        /* Subtítulos y textos adaptados de tu imagen */
+        .subtitulo {
+            font-size: 1.1rem;
             margin-bottom: 25px;
+            opacity: 0.9;
         }
 
-        /* Estilo del reproductor de Spotify */
-        .spotify-player {
-            border-radius: 12px;
-            overflow: hidden;
+        .descripcion {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .dedicatoria {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        /* Botón idéntico de la imagen */
+        .btn-spotify {
+            background-color: #ffffff;
+            color: #ff4d6d;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
-        /* Efecto de las palabras cayendo */
+        .btn-spotify:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Lluvia de palabras personalizada */
         .palabra-flotante {
             position: absolute;
-            top: -50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #ef476f;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            top: -60px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(217, 4, 41, 0.4), -1px -1px 0 rgba(255,255,255,0.5);
             white-space: nowrap;
             pointer-events: none;
             user-select: none;
@@ -72,17 +110,17 @@
 
         @keyframes caer {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(0) scale(0.8);
                 opacity: 0;
             }
             10% {
-                opacity: 1;
+                opacity: 0.85;
             }
             90% {
-                opacity: 1;
+                opacity: 0.85;
             }
             100% {
-                transform: translateY(105vh) rotate(20deg);
+                transform: translateY(108vh) scale(1.1);
                 opacity: 0;
             }
         }
@@ -90,26 +128,26 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Para una amiga muy especial 🫶</h1>
-        <p>Una melodía y mil formas de decirte lo mucho que vales.</p>
+    <div class="card">
+        <div class="titulo">❤️ Amistad y Amor ❤️</div>
+        <div class="subtitulo">❤️ Gracias por formar parte de mi vida.</div>
         
-        <!-- Reproductor de Spotify con tu canción -->
-        <div class="spotify-player">
-            <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/3qAJAUr7yc9bPDx4ESt6ND?utm_source=generator" 
-                width="100%" 
-                height="352" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
-            </iframe>
+        <div class="descripcion">
+            La amistad y el amor son los sentimientos más hermosos cuando nacen desde el corazón. 💖
         </div>
+        
+        <div class="dedicatoria">
+            Siempre tendrás un lugar especial en mi corazón. 🌹✨
+        </div>
+
+        <!-- Botón que abre tu canción de Spotify -->
+        <a href="https://open.spotify.com/track/3qAJAUr7yc9bPDx4ESt6ND?si=ifrTeOnVSCKFI113tWbkbw&utm_source=copy-link" target="_blank" class="btn-spotify">
+            💝 Presióname 💝
+        </a>
     </div>
 
     <script>
-        // Tu lista exacta de palabras y emojis
+        // Tu lista de palabras especiales
         const palabras = [
             "Mi niña ❤️", "Mi princesita 👑", "Mi hermosa 🌹", "Mi bonita 🌸",
             "Mi reina 👑", "Mi vida 💖", "Mi cielo ☁️", "Mi luz ✨",
@@ -117,33 +155,38 @@
             "Mi estrella ⭐", "Mi sol ☀️", "Mi muñequita 🧸", "Mi flor 🌺"
         ];
 
-        function crearPalabraFlotante() {
+        function crearPalabra() {
             const elemento = document.createElement('div');
             elemento.classList.add('palabra-flotante');
             
-            // Elige una palabra al azar de tu lista
+            // Selección aleatoria
             elemento.innerText = palabras[Math.floor(Math.random() * palabras.length)];
             
-            // Posición horizontal aleatoria
-            elemento.style.left = Math.random() * 100 + "vw";
+            // Posición en la pantalla
+            elemento.style.left = Math.random() * 90 + "vw"; 
             
-            // Duración de la caída aleatoria para que no caigan todas al mismo tiempo (entre 4 y 8 segundos)
-            const duracion = Math.random() * 4 + 4;
+            // Velocidad fluida de caída (entre 5 y 9 segundos)
+            const duracion = Math.random() * 4 + 5;
             elemento.style.animationDuration = duracion + "s";
             
-            // Tamaños ligeramente variados para dar dinamismo
-            elemento.style.fontSize = (Math.random() * 0.4 + 0.9) + "rem";
+            // Tamaños variados como en la imagen
+            elemento.style.fontSize = (Math.random() * 0.5 + 1.1) + "rem";
+            
+            // Transparencia aleatoria suave
+            elemento.style.opacity = Math.random() * 0.3 + 0.6;
 
             document.body.appendChild(elemento);
 
-            // Elimina el elemento cuando termina de caer para no saturar el navegador
+            // Limpieza de memoria
             setTimeout(() => {
                 elemento.remove();
             }, duracion * 1000);
         }
 
-        // Genera una nueva palabra cada 600 milisegundos
-        setInterval(crearPalabraFlotante, 600);
+        // Genera una frase flotante constantemente
+        setInterval(crearPalabra, 500);
     </script>
 </body>
 </html>
+
+```
