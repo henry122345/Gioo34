@@ -249,7 +249,42 @@ estrella.style.animationDelay=Math.random()*2+"s";
 
 document.body.appendChild(estrella);
 
+}<iframe
+id="youtubePlayer"
+width="0"
+height="0"
+src="https://www.youtube.com/embed/K1OM3q2BMxc?enablejsapi=1"
+title="YouTube player"
+frameborder="0"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+let player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtubePlayer');
 }
+
+function sorpresa(){
+
+document.getElementById("texto").innerHTML=`
+❤️ Gracias por formar parte de mi vida.<br><br>
+
+La amistad y el amor son los sentimientos más hermosos cuando nacen desde el corazón. 💖<br><br>
+
+Siempre tendrás un lugar especial en mi corazón. 🌹✨
+`;
+
+if(player){
+    player.playVideo();
+}
+
+}
+</script>
 
 function sorpresa(){
 
