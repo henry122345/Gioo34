@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amistad y Amor Verdadero ❤️</title>
+    <title>Para Alguien Especial ❤️</title>
     <style>
         * {
             box-sizing: border-box;
@@ -14,7 +14,6 @@
 
         body {
             background-color: #ff9ebb; /* Fondo rosa idéntico */
-            /* Efecto de fondo con puntitos y estrellas simuladas */
             background-image: 
                 radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
                 radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px);
@@ -33,7 +32,7 @@
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 40px 30px;
+            padding: 45px 30px;
             border-radius: 30px;
             text-align: center;
             z-index: 10;
@@ -44,29 +43,18 @@
             color: #ffffff;
         }
 
-        /* Título Principal */
-        .titulo {
-            font-size: 2.2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Subtítulo */
+        /* Subtítulo superior */
         .subtitulo {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 25px;
             opacity: 0.95;
             font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
         }
 
         /* Frase principal de Amor y Amistad */
         .descripcion {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 1.6;
             margin-bottom: 25px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -75,7 +63,7 @@
 
         .dedicatoria {
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             font-weight: bold;
         }
 
@@ -136,10 +124,8 @@
 <body>
 
     <div class="card">
-        <div class="titulo">❤️ Amor y Amistad ❤️</div>
         <div class="subtitulo">✨ El regalo más bonito de la vida ✨</div>
         
-        <!-- Nueva Frase enfocada en Amor y Amistad -->
         <div class="descripcion">
             "La verdadera amistad y el amor sincero no se buscan, se encuentran en las personas que, como tú, hacen que el mundo sea un lugar mucho más hermoso." 💖
         </div>
@@ -167,7 +153,7 @@
             const elemento = document.createElement('div');
             elemento.classList.add('palabra-flotante');
             
-            // Mezclamos un poco agregando corazones flotantes sueltos además de las palabras
+            // Mezclamos un poco agregando corazones y destellos flotantes sueltos
             const probabilidadDecoracion = Math.random();
             if (probabilidadDecoracion > 0.8) {
                 elemento.innerText = "💖";
