@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amistad y Amor ❤️</title>
+    <title>Amistad y Amor Verdadero ❤️</title>
     <style>
         * {
             box-sizing: border-box;
@@ -13,8 +14,11 @@
 
         body {
             background-color: #ff9ebb; /* Fondo rosa idéntico */
-            background-image: radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
-            background-size: 30px 30px; /* Simula los puntitos brillantes de fondo */
+            /* Efecto de fondo con puntitos y estrellas simuladas */
+            background-image: 
+                radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px);
+            background-size: 30px 30px, 60px 60px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -36,7 +40,7 @@
             max-width: 550px;
             width: 90%;
             border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.2);
             color: #ffffff;
         }
 
@@ -52,32 +56,35 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
         }
 
-        /* Subtítulos y textos adaptados de tu imagen */
+        /* Subtítulo */
         .subtitulo {
             font-size: 1.1rem;
             margin-bottom: 25px;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-weight: 500;
         }
 
+        /* Frase principal de Amor y Amistad */
         .descripcion {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             margin-bottom: 25px;
-            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-style: italic;
         }
 
         .dedicatoria {
             font-size: 1.1rem;
             margin-bottom: 30px;
-            font-weight: 500;
+            font-weight: bold;
         }
 
-        /* Botón idéntico de la imagen */
+        /* Botón "Presióname" */
         .btn-spotify {
             background-color: #ffffff;
             color: #ff4d6d;
             border: none;
-            padding: 12px 35px;
+            padding: 14px 40px;
             font-size: 1.1rem;
             font-weight: bold;
             border-radius: 50px;
@@ -92,16 +99,16 @@
 
         .btn-spotify:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Lluvia de palabras personalizada */
+        /* Lluvia de palabras y elementos flotantes */
         .palabra-flotante {
             position: absolute;
             top: -60px;
             font-weight: bold;
             color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(217, 4, 41, 0.4), -1px -1px 0 rgba(255,255,255,0.5);
+            text-shadow: 2px 2px 4px rgba(217, 4, 41, 0.3), -1px -1px 0 rgba(255,255,255,0.4);
             white-space: nowrap;
             pointer-events: none;
             user-select: none;
@@ -110,17 +117,17 @@
 
         @keyframes caer {
             0% {
-                transform: translateY(0) scale(0.8);
+                transform: translateY(0) scale(0.8) rotate(0deg);
                 opacity: 0;
             }
             10% {
-                opacity: 0.85;
+                opacity: 0.9;
             }
             90% {
-                opacity: 0.85;
+                opacity: 0.9;
             }
             100% {
-                transform: translateY(108vh) scale(1.1);
+                transform: translateY(108vh) scale(1.1) rotate(15deg);
                 opacity: 0;
             }
         }
@@ -129,15 +136,16 @@
 <body>
 
     <div class="card">
-        <div class="titulo">❤️ Amistad y Amor ❤️</div>
-        <div class="subtitulo">❤️ Gracias por formar parte de mi vida.</div>
+        <div class="titulo">❤️ Amor y Amistad ❤️</div>
+        <div class="subtitulo">✨ El regalo más bonito de la vida ✨</div>
         
+        <!-- Nueva Frase enfocada en Amor y Amistad -->
         <div class="descripcion">
-            La amistad y el amor son los sentimientos más hermosos cuando nacen desde el corazón. 💖
+            "La verdadera amistad y el amor sincero no se buscan, se encuentran en las personas que, como tú, hacen que el mundo sea un lugar mucho más hermoso." 💖
         </div>
         
         <div class="dedicatoria">
-            Siempre tendrás un lugar especial en mi corazón. 🌹✨
+            ¡Gracias por cruzarte en mi camino! 🌹💫
         </div>
 
         <!-- Botón que abre tu canción de Spotify -->
@@ -147,7 +155,7 @@
     </div>
 
     <script>
-        // Tu lista de palabras especiales
+        // Tu lista de palabras especiales que van a caer
         const palabras = [
             "Mi niña ❤️", "Mi princesita 👑", "Mi hermosa 🌹", "Mi bonita 🌸",
             "Mi reina 👑", "Mi vida 💖", "Mi cielo ☁️", "Mi luz ✨",
@@ -159,32 +167,36 @@
             const elemento = document.createElement('div');
             elemento.classList.add('palabra-flotante');
             
-            // Selección aleatoria
-            elemento.innerText = palabras[Math.floor(Math.random() * palabras.length)];
+            // Mezclamos un poco agregando corazones flotantes sueltos además de las palabras
+            const probabilidadDecoracion = Math.random();
+            if (probabilidadDecoracion > 0.8) {
+                elemento.innerText = "💖";
+            } else if (probabilidadDecoracion > 0.6) {
+                elemento.innerText = "✨";
+            } else {
+                elemento.innerText = palabras[Math.floor(Math.random() * palabras.length)];
+            }
             
-            // Posición en la pantalla
+            // Posición horizontal aleatoria
             elemento.style.left = Math.random() * 90 + "vw"; 
             
-            // Velocidad fluida de caída (entre 5 y 9 segundos)
+            // Velocidad de caída fluida (entre 5 y 9 segundos)
             const duracion = Math.random() * 4 + 5;
             elemento.style.animationDuration = duracion + "s";
             
-            // Tamaños variados como en la imagen
+            // Tamaños variados para dar profundidad
             elemento.style.fontSize = (Math.random() * 0.5 + 1.1) + "rem";
-            
-            // Transparencia aleatoria suave
-            elemento.style.opacity = Math.random() * 0.3 + 0.6;
 
             document.body.appendChild(elemento);
 
-            // Limpieza de memoria
+            // Eliminar elemento al terminar la animación
             setTimeout(() => {
                 elemento.remove();
             }, duracion * 1000);
         }
 
-        // Genera una frase flotante constantemente
-        setInterval(crearPalabra, 500);
+        // Genera una nueva palabra o detalle cada 450 milisegundos
+        setInterval(crearPalabra, 450);
     </script>
 </body>
 </html>
