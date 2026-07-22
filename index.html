@@ -14,14 +14,13 @@
 
     body {
       background: linear-gradient(180deg, #fff0f3 0%, #ffccd5 100%);
-      height: 100vh;
-      height: 100dvh; /* Se adapta perfectamente a la pantalla real del celular */
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      overflow: hidden;
       padding: 15px;
     }
 
@@ -31,6 +30,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      cursor: pointer;
     }
 
     .instruction {
@@ -39,17 +39,16 @@
       margin-bottom: 20px;
       animation: pulse 1.8s infinite;
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 8px 18px;
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(164, 19, 60, 0.1);
     }
 
-    /* Dibujo del Tulipán en SVG */
+    /* Dibujo del Tulipán */
     .tulip-wrapper {
       width: 100%;
-      max-width: 200px;
-      cursor: pointer;
+      max-width: 190px;
       transition: transform 0.2s ease;
     }
 
@@ -57,7 +56,7 @@
       transform: scale(0.95);
     }
 
-    /* Carta Modal adaptada para celular */
+    /* Carta Modal adaptada para táctil */
     .card-modal {
       display: none;
       position: fixed;
@@ -66,13 +65,13 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(4px);
       justify-content: center;
       align-items: center;
       z-index: 1000;
       opacity: 0;
       transition: opacity 0.3s ease;
-      padding: 15px;
+      padding: 20px;
     }
 
     .card-modal.show {
@@ -80,15 +79,20 @@
       opacity: 1;
     }
 
+    /* Modificaciones clave para permitir deslizar en pantallas táctiles */
     .letter {
       background: #ffffff;
       padding: 22px 18px;
-      border-radius: 20px;
+      border-radius: 22px;
       width: 100%;
       max-width: 320px;
-      /* Altura máxima controlada para que nunca rebase la pantalla del celular */
-      max-height: 80vh; 
-      overflow-y: auto; /* Permite hacer scroll suave si el celular es pequeño */
+      max-height: 75vh; /* Limita la altura para dar espacio */
+      
+      /* Habilita el desplazamiento táctil en celulares */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; 
+      touch-action: pan-y;
+      
       box-shadow: 0 15px 35px rgba(164, 19, 60, 0.3);
       border: 2px solid #ffb3c1;
       text-align: center;
@@ -102,14 +106,14 @@
 
     .letter h2 {
       color: #c9184a;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       margin-bottom: 12px;
       font-weight: 700;
     }
 
     .letter p {
       color: #333333;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       line-height: 1.5;
       margin-bottom: 12px;
       text-align: left;
@@ -119,15 +123,15 @@
       font-weight: 600;
       color: #800f2f;
       text-align: center;
-      margin-top: 5px;
+      margin-top: 8px;
     }
 
     .close-btn {
-      margin-top: 5px;
+      margin-top: 10px;
       background: linear-gradient(45deg, #ff4d6d, #c9184a);
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 20px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -148,7 +152,6 @@
   <div class="container" onclick="openLetter()">
     <div class="instruction">🌷 Toca los tulipanes 🌷</div>
     
-    <!-- Ilustración de Tulipanes -->
     <div class="tulip-wrapper">
       <svg width="100%" height="auto" viewBox="0 0 200 240">
         <!-- Tallos y Hojas -->
@@ -191,7 +194,7 @@
         Desde ese instante supe que eras alguien especial. Cada detalle tuyo se quedó grabado en mi mente, y sin darte cuenta te fuiste convirtiendo en lo más bonito de mis días.
       </p>
       <p>
-        Solo quería decirte lo mucho que me encantas y loSpecial que haces sentir mi corazón.
+        Solo quería decirte lo mucho que me encantas y lo especial que haces sentir mi corazón.
       </p>
       <p class="highlight">
         Espero sacarte una sonrisa hoy. ✨
