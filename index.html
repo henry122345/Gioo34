@@ -3,251 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Una sorpresa para ti 🌷</title>
+  <title>Para Ti 🌷</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background: linear-gradient(180deg, #fff0f3 0%, #ffccd5 100%);
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      align-items: center;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #ff9acb, #ffd6e7, #fff2c6);
       padding: 15px;
-      overflow: hidden;
+      position: relative;
     }
 
-    .container {
-      text-align: center;
+    .contenedor {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
+      max-width: 380px;
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      color: #5a1827;
+      z-index: 2;
+      position: relative;
     }
 
-    .instruction {
-      font-size: 0.95rem;
-      color: #a4133c;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #800f2f;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .texto-introduccion {
+      font-size: 1.05rem;
+      line-height: 1.5;
       margin-bottom: 15px;
-      animation: pulse 1.8s infinite;
+      font-weight: 500;
+    }
+
+    .tulipan {
+      font-size: 80px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s ease;
+      animation: flotar 2.5s ease-in-out infinite;
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    .tulipan:active {
+      transform: scale(1.15);
+    }
+
+    .tocar {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #a4133c;
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 8px 16px;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(164, 19, 60, 0.1);
     }
 
-    /* Dibujo del Tulipán */
-    .tulip-wrapper {
-      width: 100%;
-      max-width: 170px;
-      transition: transform 0.2s ease;
-    }
-
-    .tulip-wrapper:active {
-      transform: scale(0.95);
-    }
-
-    /* Ventana emergente (Modal) */
-    .card-modal {
+    /* Mensaje Oculto */
+    #mensaje {
       display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      padding: 12px;
+      margin-top: 20px;
+      padding: 18px 15px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 20px rgba(164, 19, 60, 0.15);
+      animation: aparecer 0.8s ease forwards;
     }
 
-    .card-modal.show {
-      display: flex;
-      opacity: 1;
-    }
-
-    /* Carta optimizada para celular */
-    .letter {
-      background: #ffffff;
-      padding: 18px 16px;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 330px;
-      max-height: 92vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
-      box-shadow: 0 15px 35px rgba(164, 19, 60, 0.3);
-      border: 2px solid #ffb3c1;
-      text-align: center;
-      transform: scale(0.85);
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .card-modal.show .letter {
-      transform: scale(1);
-    }
-
-    .letter h2 {
-      color: #c9184a;
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .letter p {
-      color: #333333;
-      font-size: 0.82rem;
-      line-height: 1.4;
-      margin-bottom: 8px;
+    #mensaje p {
+      line-height: 1.6;
+      margin: 10px 0;
+      color: #333;
+      font-size: 0.95rem;
       text-align: left;
     }
 
-    .letter p.highlight {
-      font-weight: 600;
-      color: #800f2f;
-      text-align: center;
-      margin-top: 4px;
-    }
-
-    /* Reproductor de Spotify integrado */
-    .spotify-player {
-      margin-top: 10px;
-      margin-bottom: 8px;
-      border-radius: 12px;
-      overflow: hidden;
-      height: 80px;
-    }
-
-    .close-btn {
-      margin-top: 4px;
-      background: linear-gradient(45deg, #ff4d6d, #c9184a);
-      color: white;
+    button {
       border: none;
-      padding: 10px 18px;
+      background: #ff4d6d;
+      color: #fff;
+      padding: 12px 20px;
       border-radius: 20px;
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 0.95rem;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(201, 24, 74, 0.3);
+      transition: transform 0.3s, background 0.3s;
       width: 100%;
+      margin-top: 10px;
+      box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.04); }
-      100% { transform: scale(1); }
+    button:active {
+      transform: scale(0.96);
+      background: #c9184a;
+    }
+
+    /* Animación de Corazones Flotantes */
+    .corazon {
+      position: absolute;
+      bottom: -40px;
+      color: #ff4d6d;
+      animation: subir 7s linear forwards;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes subir {
+      0% { transform: translateY(0); opacity: 0; }
+      20% { opacity: 0.8; }
+      100% { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container" onclick="openLetter()">
-    <div class="instruction">🌷 Toca los tulipanes para abrir 🌷</div>
-    
-    <div class="tulip-wrapper">
-      <svg width="100%" height="auto" viewBox="0 0 200 240">
-        <!-- Tallos y Hojas -->
-        <path d="M70 140 Q60 180 70 230" stroke="#4a7c59" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <path d="M100 120 Q100 170 100 230" stroke="#3b6345" stroke-width="7" fill="none" stroke-linecap="round"/>
-        <path d="M130 140 Q140 180 130 230" stroke="#4a7c59" stroke-width="6" fill="none" stroke-linecap="round"/>
-        
-        <path d="M100 190 Q60 170 40 180 Q60 210 100 200" fill="#4a7c59"/>
-        <path d="M100 185 Q140 165 160 175 Q140 205 100 195" fill="#3b6345"/>
+  <div class="contenedor">
+    <h1>Para Ti 🌷</h1>
+    <p class="texto-introduccion">
+      Hay personas que llegan sin avisar... y poco a poco se vuelven especiales. ❤️
+    </p>
 
-        <!-- Tulipán Izquierdo -->
-        <g transform="translate(45, 80)">
-          <path d="M10 50 C-10 20 0 0 25 20 C50 0 60 20 40 50 C30 65 20 65 10 50 Z" fill="#ff70a6"/>
-          <path d="M15 50 C5 30 15 15 25 30 C35 15 45 30 35 50 Z" fill="#ff97b7"/>
-        </g>
+    <div class="tulipan" onclick="abrirSorpresa()">🌷</div>
+    <div class="tocar">Toca el tulipán</div>
 
-        <!-- Tulipán Derecho -->
-        <g transform="translate(105, 80)">
-          <path d="M10 50 C-10 20 0 0 25 20 C50 0 60 20 40 50 C30 65 20 65 10 50 Z" fill="#ff70a6"/>
-          <path d="M15 50 C5 30 15 15 25 30 C35 15 45 30 35 50 Z" fill="#ff97b7"/>
-        </g>
-
-        <!-- Tulipán Centro -->
-        <g transform="translate(75, 50)">
-          <path d="M10 60 C-15 20 0 -5 25 20 C50 -5 65 20 40 60 C30 75 20 75 10 60 Z" fill="#c9184a"/>
-          <path d="M15 60 C0 30 12 10 25 30 C38 10 50 30 35 60 Z" fill="#ff4d6d"/>
-        </g>
-      </svg>
-    </div>
-  </div>
-
-  <!-- Carta Emergente -->
-  <div class="card-modal" id="cardModal" onclick="closeLetter(event)">
-    <div class="letter">
-      <h2>Desde que te vi... ❤️</h2>
+    <div id="mensaje">
       <p>
-        <strong>Desde el primer momento en que te vi me enamoré.</strong> No sé exactamente qué fue lo que me llamó la atención... si fue tu mirada, tu sonrisa o esa forma tan única que tienes de iluminar todo con tu presencia.
+        <strong>Desde el primer momento en que te vi me enamoré.</strong> No sé qué me llamó la atención... si tu mirada, tu sonrisa o lo bonita que haces la vida sin darte cuenta.
       </p>
       <p>
-        <strong>Yo sé que, poco a poco, voy a enamorarte. ❤️</strong> No porque quiera apresurar las cosas, sino porque todo lo que siento por ti es sincero. Mi corazón y mis sentimientos ya encontraron un lugar especial en ti. 🌷✨
+        Yo sé que, poco a poco, voy a enamorarte. ❤️ No porque quiera apresurar las cosas, sino porque todo lo que siento por ti es sincero. Mi corazón y mis sentimientos ya encontraron un lugar especial en ti. 🌷✨
       </p>
-      <p class="highlight">
+      <p style="text-align: center; font-weight: bold; color: #800f2f; margin-top: 12px;">
         Y cuando escuches esta canción, espero que recuerdes que cada palabra que te digo nace de lo que siento por ti. 🎵💖
       </p>
 
-      <!-- Reproductor de Spotify integrado -->
-      <div class="spotify-player" id="spotifyContainer">
-        <!-- El reproductor se activa al tocar la pantalla -->
-      </div>
-
-      <button class="close-btn" onclick="hideLetter()">Cerrar con amor</button>
+      <button onclick="escuchar()">🎵 Escuchar esta canción</button>
     </div>
   </div>
 
   <script>
-    let songLoaded = false;
-
-    function openLetter() {
-      const modal = document.getElementById('cardModal');
-      modal.classList.add('show');
-
-      // Carga la canción e inicia la reproducción con la interacción del toque
-      if (!songLoaded) {
-        const spotifyContainer = document.getElementById('spotifyContainer');
-        spotifyContainer.innerHTML = `
-          <iframe 
-            src="https://open.spotify.com/embed/track/3oJhbB8LrDTCNj35lwdtxf?utm_source=generator&autoplay=1" 
-            width="100%" 
-            height="80" 
-            frameBorder="0" 
-            allowfullscreen="" 
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-            loading="lazy">
-          </iframe>
-        `;
-        songLoaded = true;
-      }
+    function abrirSorpresa() {
+      const mensaje = document.getElementById("mensaje");
+      mensaje.style.display = "block";
     }
 
-    function hideLetter() {
-      const modal = document.getElementById('cardModal');
-      modal.classList.remove('show');
+    function escuchar() {
+      window.open("https://open.spotify.com/track/3oJhbB8LrDTCNj35lwdtxf?si=Q041PacnS1erk3aDbYil0g&utm_source=copy-link", "_blank");
     }
 
-    function closeLetter(event) {
-      if (event.target.id === 'cardModal') {
-        hideLetter();
-      }
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.className = "corazon";
+      corazon.innerHTML = "❤️";
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.fontSize = (16 + Math.random() * 20) + "px";
+      corazon.style.animationDuration = (5 + Math.random() * 3) + "s";
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 8000);
     }
+
+    setInterval(crearCorazon, 600);
   </script>
 </body>
 </html>
