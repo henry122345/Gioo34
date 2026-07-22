@@ -1,191 +1,147 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Niña ❤️</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti, Mi Niña ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background-color: #ff9ebb; /* Fondo rosa idéntico */
-            background-image: 
-                radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
-                radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px);
-            background-size: 30px 30px, 60px 60px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
+    body {
+      background: linear-gradient(135deg, #0d0d1a, #1a0826, #2d0b3f);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      color: #fff;
+      padding: 20px;
+    }
 
-        /* Tarjeta translúcida central */
-        .card {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 45px 30px;
-            border-radius: 30px;
-            text-align: center;
-            z-index: 10;
-            max-width: 550px;
-            width: 90%;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.2);
-            color: #ffffff;
-        }
+    /* Contenedor principal */
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 30px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-        /* Título añadido */
-        .titulo-principal {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-        }
+    .card h1 {
+      font-size: 1.8rem;
+      color: #ff758c;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
 
-        /* Subtítulo */
-        .subtitulo {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            opacity: 0.95;
-            font-weight: 500;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-        }
+    .card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
 
-        /* Frase principal */
-        .descripcion {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            font-style: italic;
-        }
+    /* Reproductor de Spotify */
+    .spotify-container {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
 
-        .dedicatoria {
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-            font-weight: bold;
-        }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 152px;
+    }
 
-        /* Botón "Presióname" */
-        .btn-spotify {
-            background-color: #ffffff;
-            color: #ff4d6d;
-            border: none;
-            padding: 14px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
+    /* Animación de corazones flotantes */
+    .heart {
+      position: absolute;
+      bottom: -10vh;
+      color: #ff4b2b;
+      font-size: 20px;
+      animation: float 6s infinite linear;
+      opacity: 0.7;
+      z-index: 1;
+    }
 
-        .btn-spotify:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.3);
+        opacity: 0;
+      }
+    }
 
-        /* Lluvia de palabras y elementos flotantes */
-        .palabra-flotante {
-            position: absolute;
-            top: -60px;
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(217, 4, 41, 0.3), -1px -1px 0 rgba(255,255,255,0.4);
-            white-space: nowrap;
-            pointer-events: none;
-            user-select: none;
-            animation: caer linear infinite;
-        }
-
-        @keyframes caer {
-            0% {
-                transform: translateY(0) scale(0.8) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.9;
-            }
-            90% {
-                opacity: 0.9;
-            }
-            100% {
-                transform: translateY(108vh) scale(1.1) rotate(15deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="titulo-principal">Mi niña ❤️</div>
-        <div class="subtitulo">✨ El regalo más bonito de la vida ✨</div>
-        
-        <div class="descripcion">
-            "La verdadera amistad y el amor sincero no se buscan, se encuentran en las personas que, como tú, hacen que el mundo sea un lugar mucho más hermoso." 💖
-        </div>
-        
-        <div class="dedicatoria">
-            ¡Gracias por cruzarte en mi camino! 🌹💫
-        </div>
+  <div class="card">
+    <h1>Especialmente Para Ti ❤️</h1>
+    <p>
+      "Esta canción me recuerda a lo lindo que es coincidir contigo. Seguiré luchando cada día por tu amor y por ganarme ese lugar especial en tu corazón, mi niña."
+    </p>
 
-        <!-- Botón que abre tu canción de Spotify -->
-        <a href="https://open.spotify.com/track/3qAJAUr7yc9bPDx4ESt6ND?si=ifrTeOnVSCKFI113tWbkbw&utm_source=copy-link" target="_blank" class="btn-spotify">
-            💝 Presióname 💝
-        </a>
+    <!-- Reproductor incrustado de la canción -->
+    <div class="spotify-container">
+      <iframe 
+        src="https://open.spotify.com/embed/track/3oJhbB8LrDTCNj35lwdtxf?utm_source=generator&theme=0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
     </div>
+  </div>
 
-    <script>
-        const palabras = [
-            "Mi niña ❤️", "Mi princesita 👑", "Mi hermosa 🌹", "Mi bonita 🌸",
-            "Mi reina 👑", "Mi vida 💖", "Mi cielo ☁️", "Mi luz ✨",
-            "Mi personita 🫶", "Mi consentida 💕", "Mi angelito 😇", "Mi tesoro 💎",
-            "Mi estrella ⭐", "Mi sol ☀️", "Mi muñequita 🧸", "Mi flor 🌺"
-        ];
+  <!-- Script para generar los corazones de fondo -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+      heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+      document.body.appendChild(heart);
 
-        function crearPalabra() {
-            const elemento = document.createElement('div');
-            elemento.classList.add('palabra-flotante');
-            
-            const probabilidadDecoracion = Math.random();
-            if (probabilidadDecoracion > 0.8) {
-                elemento.innerText = "💖";
-            } else if (probabilidadDecoracion > 0.6) {
-                elemento.innerText = "✨";
-            } else {
-                elemento.innerText = palabras[Math.floor(Math.random() * palabras.length)];
-            }
-            
-            elemento.style.left = Math.random() * 90 + "vw"; 
-            const duracion = Math.random() * 4 + 5;
-            elemento.style.animationDuration = duracion + "s";
-            elemento.style.fontSize = (Math.random() * 0.5 + 1.1) + "rem";
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
 
-            document.body.appendChild(elemento);
+    setInterval(createHeart, 350);
+  </script>
 
-            setTimeout(() => {
-                elemento.remove();
-            }, duracion * 1000);
-        }
-
-        setInterval(crearPalabra, 450);
-    </script>
 </body>
 </html>
-
-```
-
