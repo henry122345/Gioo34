@@ -2,51 +2,63 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para Ti 🌷</title>
+  <!-- Asegura que se adapte perfectamente a cualquier pantalla de celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Una sorpresa para ti 🌷</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background: linear-gradient(135deg, #ffeef8 0%, #ffe3e3 100%);
+      background: linear-gradient(180deg, #fff0f3 0%, #ffccd5 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
       padding: 20px;
     }
 
     .container {
       text-align: center;
-      cursor: pointer;
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .instruction {
       font-size: 1.1rem;
-      color: #b33951;
-      margin-bottom: 20px;
-      animation: pulse 1.5s infinite;
+      color: #a4133c;
+      margin-bottom: 25px;
+      animation: pulse 1.8s infinite;
       font-weight: 600;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 10px 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(164, 19, 60, 0.1);
     }
 
     /* Dibujo del Tulipán en SVG */
     .tulip-wrapper {
-      display: inline-block;
-      transition: transform 0.3s ease;
+      width: 100%;
+      max-width: 240px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
-    .tulip-wrapper:hover {
-      transform: scale(1.08);
+    .tulip-wrapper:active {
+      transform: scale(0.95);
     }
 
-    /* Carta Modal */
+    /* Carta Modal para celular */
     .card-modal {
       display: none;
       position: fixed;
@@ -54,13 +66,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(4px);
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
       justify-content: center;
       align-items: center;
       z-index: 1000;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.4s ease;
+      padding: 20px;
     }
 
     .card-modal.show {
@@ -70,68 +83,73 @@
 
     .letter {
       background: #ffffff;
-      padding: 35px 25px;
-      border-radius: 20px;
-      max-width: 420px;
-      width: 90%;
-      box-shadow: 0 15px 35px rgba(179, 57, 81, 0.2);
-      border: 2px solid #f2bac9;
+      padding: 30px 22px;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 340px;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(164, 19, 60, 0.25);
+      border: 2px solid #ffb3c1;
       text-align: center;
-      transform: translateY(20px);
-      animation: slideUp 0.5s forwards;
-      position: relative;
+      transform: scale(0.8);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-modal.show .letter {
+      transform: scale(1);
     }
 
     .letter h2 {
-      color: #e63946;
-      font-size: 1.6rem;
+      color: #c9184a;
+      font-size: 1.5rem;
       margin-bottom: 15px;
+      font-weight: 700;
     }
 
     .letter p {
-      color: #4a4a4a;
-      font-size: 1.05rem;
+      color: #333333;
+      font-size: 0.98rem;
       line-height: 1.6;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .letter p.highlight {
+      font-weight: 600;
+      color: #800f2f;
+      text-align: center;
     }
 
     .close-btn {
-      margin-top: 15px;
-      background: #e63946;
+      margin-top: 10px;
+      background: linear-gradient(45deg, #ff4d6d, #c9184a);
       color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 0.9rem;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .close-btn:hover {
-      background: #b33951;
+      box-shadow: 0 4px 12px rgba(201, 24, 74, 0.3);
+      width: 100%;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      50% { transform: scale(1.04); }
       100% { transform: scale(1); }
-    }
-
-    @keyframes slideUp {
-      to {
-        transform: translateY(0);
-      }
     }
   </style>
 </head>
 <body>
 
   <div class="container" onclick="openLetter()">
-    <div class="instruction">✨ Toca los tulipanes para abrir ✨</div>
+    <div class="instruction">🌷 Toca los tulipanes 🌷</div>
     
     <!-- Ilustración de Tulipanes -->
     <div class="tulip-wrapper">
-      <svg width="220" height="260" viewBox="0 0 200 240">
+      <svg width="100%" height="auto" viewBox="0 0 200 240">
         <!-- Tallos y Hojas -->
         <path d="M70 140 Q60 180 70 230" stroke="#4a7c59" stroke-width="6" fill="none" stroke-linecap="round"/>
         <path d="M100 120 Q100 170 100 230" stroke="#3b6345" stroke-width="7" fill="none" stroke-linecap="round"/>
@@ -152,29 +170,32 @@
           <path d="M15 50 C5 30 15 15 25 30 C35 15 45 30 35 50 Z" fill="#ff97b7"/>
         </g>
 
-        <!-- Tulipán Centro (Principal) -->
+        <!-- Tulipán Centro -->
         <g transform="translate(75, 50)">
-          <path d="M10 60 C-15 20 0 -5 25 20 C50 -5 65 20 40 60 C30 75 20 75 10 60 Z" fill="#e63946"/>
+          <path d="M10 60 C-15 20 0 -5 25 20 C50 -5 65 20 40 60 C30 75 20 75 10 60 Z" fill="#c9184a"/>
           <path d="M15 60 C0 30 12 10 25 30 C38 10 50 30 35 60 Z" fill="#ff4d6d"/>
         </g>
       </svg>
     </div>
   </div>
 
-  <!-- Ventana emergente con la carta -->
+  <!-- Carta Emergente -->
   <div class="card-modal" id="cardModal" onclick="closeLetter(event)">
     <div class="letter">
-      <h2>🌷 Un mensaje para ti 🌷</h2>
+      <h2>Desde que te vi... ❤️</h2>
       <p>
-        <strong>Desde el primer momento en que te vi me enamoré.</strong> No sé qué fue lo que me llamó la atención... si fue la luz de tu mirada, la ternura de tu sonrisa o esa manera tan especial que tienes de llenar todo de alegría sin darte cuenta.
+        <strong>Desde el primer momento en que te vi me enamoré.</strong> No sé exactamente qué fue lo que me llamó tanto la atención... tal vez la dulzura de tu mirada, tu sonrisa o la tranquilidad tan bonita que transmites sin hacer el mínimo esfuerzo.
       </p>
       <p>
-        Desde ese instante supe que eras distinta a todo lo demás. Cada detalle tuyo me atrapó por completo, y hoy solo quiero seguir descubriéndote y demostrarte lo mucho que significas para mí.
+        Solo sé que desde ese instante todo cambió para mí. Empecé a notar detalles en ti que no encuentro en nadie más, y poco a poco te fuiste convirtiendo en mi pensamiento favorito del día.
       </p>
       <p>
-        Gracias por existir y por hacer que cada instante valga la pena. ❤️
+        No quería quedarme con las ganas de decírtelo: me encantas, me inspiras y me haces sentir algo hermoso que no puedo explicar del todo con palabras.
       </p>
-      <button class="close-btn" onclick="hideLetter()">Cerrar</button>
+      <p class="highlight">
+        Espero sacarte una sonrisa hoy, así como tú lo haces conmigo siempre. ✨
+      </p>
+      <button class="close-btn" onclick="hideLetter()">Guardar en el corazón</button>
     </div>
   </div>
 
@@ -190,7 +211,6 @@
     }
 
     function closeLetter(event) {
-      // Cierra la carta solo si se hace clic fuera del recuadro blanco
       if (event.target.id === 'cardModal') {
         hideLetter();
       }
